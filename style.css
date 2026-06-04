@@ -1,48 +1,84 @@
 :root { 
-    --primary: #000000; 
     --accent: #007bff; 
     --light: #ffffff; 
-    --card-bg: #111111;
 }
 
-/* Smooth Scrolling Enabled */
 html { scroll-behavior: smooth; }
 
-body { font-family: 'Segoe UI', sans-serif; background: var(--primary); color: var(--light); margin: 0; line-height: 1.6; }
+/* Global Background Setup */
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    color: var(--light); 
+    margin: 0; 
+    line-height: 1.6;
+    /* Adds the neon background image and fixes it to the viewport */
+    background: url('assets/blessing_bg.png') no-repeat center center fixed; 
+    background-size: cover;
+    background-color: #000; /* Fallback */
+}
 
-/* Sticky Navbar */
-.navbar { position: sticky; top: 0; z-index: 1000; background: rgba(0, 0, 0, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; border-bottom: 1px solid var(--accent); backdrop-filter: blur(10px); }
+/* Adds a dark overlay to the whole site so text remains readable */
+.site-overlay {
+    background: rgba(0, 0, 0, 0.7); /* Darkens the background */
+    min-height: 100vh;
+}
+
+.navbar { position: sticky; top: 0; z-index: 1000; background: rgba(0, 0, 0, 0.85); display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; border-bottom: 1px solid var(--accent); backdrop-filter: blur(15px); }
 .logo { color: var(--accent); font-weight: bold; font-size: 1.5rem; letter-spacing: 1px; }
 .nav-links { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
 .nav-links a { color: var(--light); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
 .nav-links a:hover { color: var(--accent); }
 
-.hero { text-align: center; padding: 100px 20px; border-bottom: 2px solid var(--accent); background: linear-gradient(180deg, #000000 0%, #0a192f 100%); }
+.hero { text-align: center; padding: 100px 20px; background: rgba(0, 0, 0, 0.5); }
 .hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
 .hero-btn { display: inline-block; margin-top: 20px; text-decoration: none; }
 
 .section-padding { padding: 60px 10%; }
 .section-title { color: var(--accent); text-align: center; font-size: 2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
 
+/* Responsive Grid */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 
-/* Product Cards */
-.item-card { border: 1px solid #333; padding: 20px; background: var(--card-bg); text-align: center; border-radius: 8px; transition: transform 0.3s, box-shadow 0.3s; }
-.item-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2); }
-.image-placeholder { height: 250px; background: linear-gradient(45deg, #1a1a1a, #2a2a2a); margin-bottom: 15px; border-radius: 4px; border: 1px solid #333; }
-.item-category { color: #888; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; }
+/* Curved, Glassmorphism Product Cards */
+.item-card { 
+    background: rgba(15, 15, 15, 0.65); /* Semi-transparent black */
+    backdrop-filter: blur(12px); /* Frosted glass effect */
+    border: 1px solid rgba(0, 123, 255, 0.3); /* Subtle blue border */
+    border-radius: 20px; /* Curved edges */
+    overflow: hidden; /* Keeps images inside the curve */
+    text-align: center; 
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; 
+}
+
+.item-card:hover { 
+    transform: translateY(-8px); 
+    border-color: var(--accent); 
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4); 
+}
+
+/* Image Fixes */
+.product-img { 
+    width: 100%; 
+    height: 280px; 
+    object-fit: cover; 
+    display: block;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-content { padding: 20px; }
+.item-category { color: #aaa; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; }
 .item-card h3 { margin: 5px 0 15px; font-size: 1.2rem; }
 
-/* Review Cards */
-.review-card { background: var(--card-bg); border: 1px solid #222; padding: 25px; border-radius: 8px; text-align: left; }
+/* Reviews & Order forms matched to the new theme */
+.review-card { background: rgba(15, 15, 15, 0.65); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 20px; text-align: left; }
 .stars { color: var(--accent); font-size: 1.2rem; margin-bottom: 10px; }
 .review-text { font-style: italic; color: #ddd; margin-bottom: 15px; }
 .reviewer { font-weight: bold; color: var(--light); }
 
-.order-section { text-align: center; border-top: 1px solid #333; }
-input { display: block; width: 100%; max-width: 400px; margin: 15px auto; padding: 15px; background: #1a1a1a; border: 1px solid #444; color: white; border-radius: 4px; outline: none; }
+.order-section { text-align: center; background: rgba(0, 0, 0, 0.5); border-radius: 20px; padding: 40px; margin: 40px 10%; }
+input { display: block; width: 100%; max-width: 400px; margin: 15px auto; padding: 15px; background: rgba(0,0,0,0.6); border: 1px solid #444; color: white; border-radius: 10px; outline: none; }
 input:focus { border-color: var(--accent); }
-.contact-btn { background: var(--accent); color: white; border: none; padding: 15px 30px; cursor: pointer; font-weight: bold; border-radius: 4px; transition: background 0.3s; width: 100%; max-width: 430px; }
+.contact-btn { background: var(--accent); color: white; border: none; padding: 15px 30px; cursor: pointer; font-weight: bold; border-radius: 10px; transition: background 0.3s; width: 100%; max-width: 430px; }
 .contact-btn:hover { background: #0056b3; }
 
 footer { background: #000; border-top: 2px solid var(--accent); padding: 40px; text-align: center; }
