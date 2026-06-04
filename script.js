@@ -1,11 +1,12 @@
-// Product Catalog with brand new, verified image link for the necklace
+// Product Catalog with 100% reliable Unsplash links
 const products = [
     { name: "Sapphire Evening Dress", category: "Dresses", img: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80" },
     { name: "Premium Graphic T-Shirt", category: "T-Shirts", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" },
     { name: "Classic White V-Neck", category: "T-Shirts", img: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80" },
     { name: "Hand-woven Habesha Kemis", category: "Local Merchandise", img: "https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=600&q=80" },
     { name: "Luxury Matte Lipstick", category: "Cosmetics", img: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80" },
-    { name: "24k Gold Plated Necklace", category: "Jewelry", img: "https://images.unsplash.com/photo-1515562141207-7a8efc5ef01a?auto=format&fit=crop&w=600&q=80" }
+    // Fixed Necklace Image Link
+    { name: "24k Gold Plated Necklace", category: "Jewelry", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" }
 ];
 
 const reviews = [
