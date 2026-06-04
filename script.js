@@ -1,78 +1,52 @@
-:root { 
-    --accent: #007bff; 
-    --light: #ffffff; 
+// Product Catalog with brand new, verified image link for the necklace
+const products = [
+    { name: "Sapphire Evening Dress", category: "Dresses", img: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80" },
+    { name: "Premium Graphic T-Shirt", category: "T-Shirts", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" },
+    { name: "Classic White V-Neck", category: "T-Shirts", img: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80" },
+    { name: "Hand-woven Habesha Kemis", category: "Local Merchandise", img: "https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=600&q=80" },
+    { name: "Luxury Matte Lipstick", category: "Cosmetics", img: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80" },
+    { name: "24k Gold Plated Necklace", category: "Jewelry", img: "https://images.unsplash.com/photo-1515562141207-7a8efc5ef01a?auto=format&fit=crop&w=600&q=80" }
+];
+
+const reviews = [
+    { name: "Sara M.", text: "The Turkish dresses are absolutely stunning. I wore one to a wedding and received compliments all night.", rating: 5 },
+    { name: "Beti T.", text: "Love the local merchandise selection. It's hard to find high-quality T-shirts and traditional clothes in one spot.", rating: 5 },
+    { name: "Hanna D.", text: "I placed a custom order for a specific jewelry piece and they delivered perfectly. Great concierge service.", rating: 4 }
+];
+
+function renderShop() {
+    const grid = document.getElementById('product-grid');
+    products.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'item-card';
+        div.innerHTML = `
+            <img src="${p.img}" alt="${p.name}" class="product-img">
+            <div class="card-content">
+                <div class="item-category">${p.category}</div>
+                <h3>${p.name}</h3>
+                <a href="tel:0944268337" class="inquire-link">Inquire Availability</a>
+            </div>
+        `;
+        grid.appendChild(div);
+    });
 }
 
-html { scroll-behavior: smooth; }
-
-/* Global Background Setup using your specific image */
-body { 
-    font-family: 'Segoe UI', sans-serif; 
-    color: var(--light); 
-    margin: 0; 
-    line-height: 1.6;
-    /* References your uploaded image file */
-    background: url('image_4d72a5.jpg') no-repeat center center fixed; 
-    background-size: cover;
-    background-color: #040914; 
+function renderReviews() {
+    const grid = document.getElementById('reviews-grid');
+    reviews.forEach(r => {
+        const div = document.createElement('div');
+        div.className = 'review-card';
+        const starsHtml = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+        div.innerHTML = `
+            <div class="stars">${starsHtml}</div>
+            <p class="review-text">"${r.text}"</p>
+            <p class="reviewer">- ${r.name}</p>
+        `;
+        grid.appendChild(div);
+    });
 }
 
-.site-overlay { background: rgba(0, 0, 0, 0.75); min-height: 100vh; }
-
-.navbar { position: sticky; top: 0; z-index: 1000; background: rgba(0, 0, 0, 0.85); display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; border-bottom: 1px solid var(--accent); backdrop-filter: blur(15px); }
-.logo { color: var(--accent); font-weight: bold; font-size: 1.5rem; letter-spacing: 1px; }
-.nav-links { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
-.nav-links a { color: var(--light); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
-.nav-links a:hover { color: var(--accent); }
-
-.hero { text-align: center; padding: 100px 20px; background: rgba(0, 0, 0, 0.6); }
-.hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
-.hero-btn { display: inline-block; margin-top: 20px; text-decoration: none; }
-
-.section-padding { padding: 60px 10%; }
-.section-title { color: var(--accent); text-align: center; font-size: 2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
-
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-
-.item-card { 
-    background: rgba(15, 15, 15, 0.8); 
-    backdrop-filter: blur(12px); 
-    border: 1px solid rgba(0, 123, 255, 0.3); 
-    border-radius: 20px; 
-    overflow: hidden; 
-    text-align: center; 
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; 
-}
-
-.item-card:hover { 
-    transform: translateY(-8px); 
-    border-color: var(--accent); 
-    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4); 
-}
-
-.product-img { 
-    width: 100%; 
-    height: 280px; 
-    object-fit: cover; 
-    display: block;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-.card-content { padding: 20px; }
-.item-category { color: #aaa; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; }
-.item-card h3 { margin: 5px 0 15px; font-size: 1.2rem; }
-.inquire-link { color: #007bff; text-decoration: none; font-weight: bold; }
-
-.review-card { background: rgba(15, 15, 15, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 20px; text-align: left; }
-.stars { color: var(--accent); font-size: 1.2rem; margin-bottom: 10px; }
-.review-text { font-style: italic; color: #ddd; margin-bottom: 15px; }
-.reviewer { font-weight: bold; color: var(--light); }
-
-.order-section { text-align: center; background: rgba(0, 0, 0, 0.6); border-radius: 20px; padding: 40px; margin: 40px 10%; border: 1px solid rgba(255, 255, 255, 0.1); }
-input { display: block; width: 100%; max-width: 400px; margin: 15px auto; padding: 15px; background: rgba(0,0,0,0.8); border: 1px solid #444; color: white; border-radius: 10px; outline: none; }
-input:focus { border-color: var(--accent); }
-.contact-btn { background: var(--accent); color: white; border: none; padding: 15px 30px; cursor: pointer; font-weight: bold; border-radius: 10px; transition: background 0.3s; width: 100%; max-width: 430px; }
-.contact-btn:hover { background: #0056b3; }
-
-footer { background: #000; border-top: 2px solid var(--accent); padding: 40px; text-align: center; }
-footer a { color: var(--accent); text-decoration: none; font-weight: bold; }
+window.onload = () => {
+    renderShop();
+    renderReviews();
+};
