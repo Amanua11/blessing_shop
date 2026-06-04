@@ -8,52 +8,280 @@
 </head>
 <body>
     <div class="site-overlay">
+
+        <!-- NAVBAR -->
         <nav class="navbar">
-            <div class="logo">BLESSING COLLECTION</div>
-            <ul class="nav-links">
+            <div class="logo">BLESSING<span class="accent-dot">.</span></div>
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-links" id="nav-menu">
                 <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#shop">Shop</a></li>
                 <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#order">Custom Order</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#order" class="nav-cta">Custom Order</a></li>
             </ul>
         </nav>
 
+        <!-- HERO -->
         <header id="hero" class="hero">
-            <h1>Elevated Style, Curated for You</h1>
-            <p>Premium Turkish imports, local Ethiopian artistry, and luxury cosmetics.</p>
-            <a href="#shop" class="contact-btn hero-btn">Explore Collection</a>
+            <div class="hero-content animate-on-scroll">
+                <p class="hero-eyebrow">Addis Ababa, Ethiopia &mdash; Importing from Turkey</p>
+                <h1>Elevated Style,<br>Curated for You</h1>
+                <p class="hero-sub">Premium Turkish fashion, luxury cosmetics, and fine jewellery &mdash; brought directly to Addis Ababa.</p>
+                <div class="hero-actions">
+                    <a href="#shop" class="btn-primary btn-large">Explore Collection</a>
+                    <a href="#order" class="btn-outline btn-large">Place Custom Order</a>
+                </div>
+            </div>
         </header>
 
+        <!-- STATS BAR -->
+        <div class="stats-bar">
+            <div class="stat-item animate-on-scroll">
+                <strong>500+</strong>
+                <span>Happy Customers</span>
+            </div>
+            <div class="stat-item animate-on-scroll" style="transition-delay:0.1s">
+                <strong>3</strong>
+                <span>Product Categories</span>
+            </div>
+            <div class="stat-item animate-on-scroll" style="transition-delay:0.2s">
+                <strong>🇹🇷</strong>
+                <span>Imported from Turkey</span>
+            </div>
+            <div class="stat-item animate-on-scroll" style="transition-delay:0.3s">
+                <strong>24/7</strong>
+                <span>Order Inquiries</span>
+            </div>
+        </div>
+
         <main>
-            <section id="shop" class="section-padding">
-                <h2 class="section-title">Our Collection</h2>
+
+            <!-- ABOUT -->
+            <section id="about" class="section-padding">
+                <div class="about-grid">
+                    <div class="animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Blessing Collection store" class="about-img">
+                    </div>
+                    <div class="about-content animate-on-scroll" style="transition-delay:0.15s">
+                        <p class="section-eyebrow">Our Story</p>
+                        <h2 class="about-title">Fashion Without Borders</h2>
+                        <p>Blessing Collection was born from a simple belief: that women in Addis Ababa deserve access to the same quality and style as any fashion capital in the world.</p>
+                        <p>We source directly from Turkey's premier fashion houses and cosmetic manufacturers, cutting out the middleman so our clients receive authentic, high-quality pieces at fair prices. From elegant evening dresses to everyday essentials, luxury cosmetics to fine jewellery &mdash; everything is hand-selected with the Ethiopian woman in mind.</p>
+                        <p>Visit us at Yeka View Apartment, or place a custom order and we will source exactly what you are looking for.</p>
+                        <ul class="about-values">
+                            <li>Directly imported from Turkey &mdash; no middlemen</li>
+                            <li>Authentic, high-quality pieces guaranteed</li>
+                            <li>Custom orders sourced on request</li>
+                            <li>Personal styling consultations available</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SHOP -->
+            <section id="shop" class="section-padding shop-section">
+                <p class="section-eyebrow" style="text-align:center">Our Collection</p>
+                <h2 class="section-title">Shop by Category</h2>
+
+                <div class="filter-bar">
+                    <button class="filter-btn active" onclick="filterProducts('All', this)">All</button>
+                    <button class="filter-btn" onclick="filterProducts('Clothing', this)">Clothing</button>
+                    <button class="filter-btn" onclick="filterProducts('Cosmetics', this)">Cosmetics</button>
+                    <button class="filter-btn" onclick="filterProducts('Jewellery', this)">Jewellery</button>
+                </div>
+
                 <div class="grid" id="product-grid"></div>
             </section>
 
-            <section id="reviews" class="section-padding">
-                <h2 class="section-title">Client Testimonials</h2>
+            <!-- REVIEWS -->
+            <section id="reviews" class="section-padding reviews-section">
+                <p class="section-eyebrow" style="text-align:center">Client Voices</p>
+                <h2 class="section-title">What Our Customers Say</h2>
                 <div class="grid" id="reviews-grid"></div>
             </section>
 
-            <section id="order" class="order-section">
-                <h2 class="section-title">Place a Custom Order</h2>
-                <p style="margin-bottom: 20px; color: #ccc;">Can't find your size? Looking for something specific? Let us know.</p>
-                <form id="order-form" onsubmit="return false;">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="text" placeholder="Item/Request Description" required>
-                    <button type="button" class="contact-btn" onclick="window.location.href='tel:0944268337'">
-                        Inquire via Call: 0944268337
-                    </button>
-                </form>
+            <!-- FAQ -->
+            <section id="faq" class="section-padding faq-section">
+                <p class="section-eyebrow" style="text-align:center">Common Questions</p>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item animate-on-scroll">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Do you import directly from Turkey?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. All our clothing, cosmetics, and jewellery are sourced directly from trusted suppliers and manufacturers in Turkey. This means you get authentic quality without inflated middleman pricing.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll" style="transition-delay:0.05s">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Can you source a specific item I have seen online?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely. Our custom order service exists exactly for this. Share a photo or description of what you want and we will do our best to source it from Turkey for you. Contact us on 0944268337 to get started.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll" style="transition-delay:0.1s">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Do you have sizes for all body types?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We carry a wide range of sizes and can specifically source your size through a custom order if we do not have it in stock. Just reach out and we will sort it out for you.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll" style="transition-delay:0.15s">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Where are you located?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We are based at Yeka View Apartment, Addis Ababa. You can visit us in person or contact us on 0944268337 to arrange a viewing. We also accept orders remotely.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll" style="transition-delay:0.2s">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            How long does a custom order take?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Timelines depend on the item and current stock in Turkey, but most custom orders are fulfilled within 2 to 4 weeks. We will give you a clear estimate when you place your order.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll" style="transition-delay:0.25s">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Are your cosmetics authentic and safe?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. We only source cosmetics from reputable Turkish brands with proper formulation and safety standards. All products are genuine &mdash; we do not carry counterfeits.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
+
+            <!-- CUSTOM ORDER -->
+            <section id="order" class="order-section">
+                <p class="section-eyebrow" style="text-align:center">Get in Touch</p>
+                <h2 class="section-title">Place a Custom Order</h2>
+                <p class="order-sub">Can't find your size? Seen something online you love? Let us know and we will source it directly from Turkey for you.</p>
+                <div class="order-grid">
+                    <div class="order-info">
+                        <div class="order-detail">
+                            <span class="order-icon">📞</span>
+                            <div>
+                                <strong>Phone / WhatsApp</strong>
+                                <a href="tel:0944268337">0944268337</a>
+                            </div>
+                        </div>
+                        <div class="order-detail">
+                            <span class="order-icon">📍</span>
+                            <div>
+                                <strong>Visit Us</strong>
+                                <a href="https://maps.app.goo.gl/PzgyaJUZbwHeeqfp9" target="_blank">Yeka View Apartment, Addis Ababa</a>
+                            </div>
+                        </div>
+                        <div class="order-detail">
+                            <span class="order-icon">🕐</span>
+                            <div>
+                                <strong>Availability</strong>
+                                <span>Open daily, inquiries accepted 24/7 via WhatsApp</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-form-card">
+                        <h3 style="margin-bottom:20px; color:#fff; font-size:1.2rem;">Send a Request</h3>
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" id="order-name" placeholder="e.g. Sara Tadesse" />
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="order-phone" placeholder="+251 9__ ___ ___" />
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="order-category">
+                                <option value="">Select category</option>
+                                <option>Clothing / Dress</option>
+                                <option>Cosmetics</option>
+                                <option>Jewellery</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Item Description</label>
+                            <textarea id="order-desc" rows="3" placeholder="Describe what you are looking for, including size, colour, style..."></textarea>
+                        </div>
+                        <button class="contact-btn" onclick="handleOrder()">Send Request &rarr;</button>
+                    </div>
+                </div>
+            </section>
+
         </main>
 
+        <!-- FOOTER -->
         <footer>
-            <p>Visit us: <a href="https://maps.app.goo.gl/PzgyaJUZbwHeeqfp9" target="_blank">Yeka View Apartment, Addis Ababa</a></p>
-            <p>Contact: <a href="tel:0944268337">0944268337</a></p>
-            <p style="margin-top: 15px; font-size: 0.8rem; color: #aaa;">© 2026 Blessing Collection. All rights reserved.</p>
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div class="logo" style="font-size:1.8rem; margin-bottom:8px;">BLESSING<span class="accent-dot">.</span></div>
+                    <p>Premium Turkish fashion, cosmetics and jewellery &mdash; delivered to Addis Ababa.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/251944268337" class="social-link" target="_blank" title="WhatsApp">W</a>
+                        <a href="#" class="social-link" title="Instagram">IG</a>
+                        <a href="#" class="social-link" title="Telegram">T</a>
+                        <a href="#" class="social-link" title="Facebook">f</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Navigate</h5>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Categories</h5>
+                    <ul>
+                        <li><a href="#shop">Clothing &amp; Dresses</a></li>
+                        <li><a href="#shop">Cosmetics</a></li>
+                        <li><a href="#shop">Jewellery</a></li>
+                        <li><a href="#order">Custom Orders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="tel:0944268337">0944268337</a></li>
+                        <li><a href="https://wa.me/251944268337" target="_blank">WhatsApp Us</a></li>
+                        <li><a href="https://maps.app.goo.gl/PzgyaJUZbwHeeqfp9" target="_blank">Yeka View, Addis Ababa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Blessing Collection. All rights reserved.</p>
+                <p class="footer-credit">Website designed &amp; developed by <a href="#" target="_blank">SpiderWeb</a></p>
+            </div>
         </footer>
+
     </div>
+
+    <!-- WHATSAPP FLOAT -->
+    <a class="whatsapp-float" href="https://wa.me/251944268337" target="_blank" rel="noopener" title="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="wa-tooltip">Chat on WhatsApp</span>
+    </a>
+
     <script src="script.js"></script>
 </body>
 </html>
