@@ -9,7 +9,7 @@ const products = [
     { name: "Premium Skincare Set", category: "Cosmetics", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80" },
     { name: "24k Gold Plated Necklace", category: "Jewellery", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" },
     { name: "Crystal Drop Earrings", category: "Jewellery", img: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=600&q=80" },
-    { name: "Silver Bangle Bracelet", category: "Jewellery", img: "https://images.unsplash.com/photo-1573408301185-9519f94815b9?auto=format&fit=crop&w=600&q=80" },
+    { name: "Silver Bangle Bracelet", category: "Jewellery", img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80" },
 ];
 
 const reviews = [
