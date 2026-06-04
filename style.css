@@ -5,16 +5,18 @@
 
 html { scroll-behavior: smooth; }
 
-/* Global Background Setup using your specific image */
 body { 
     font-family: 'Segoe UI', sans-serif; 
     color: var(--light); 
     margin: 0; 
     line-height: 1.6;
-    /* References your uploaded image file */
-    background: url('image_4d72a5.jpg') no-repeat center center fixed; 
+    /* FIX: Replace YOUR_NEON_IMAGE_NAME.jpg with your exact file name */
+    background-image: url('YOUR_NEON_IMAGE_NAME.jpg'); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     background-size: cover;
-    background-color: #040914; 
+    background-color: #000000; /* Forces a black background if your image doesn't load */
 }
 
 .site-overlay { background: rgba(0, 0, 0, 0.75); min-height: 100vh; }
