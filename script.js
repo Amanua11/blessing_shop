@@ -1,4 +1,4 @@
-// Product Catalog with working Image URLs
+// Product Catalog with live image URLs
 const products = [
     { name: "Sapphire Evening Dress", category: "Dresses", img: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80" },
     { name: "Premium Graphic T-Shirt", category: "T-Shirts", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" },
@@ -19,12 +19,13 @@ function renderShop() {
     products.forEach(p => {
         const div = document.createElement('div');
         div.className = 'item-card';
+        // The grey box is gone, replaced with an actual <img> tag
         div.innerHTML = `
             <img src="${p.img}" alt="${p.name}" class="product-img">
             <div class="card-content">
                 <div class="item-category">${p.category}</div>
                 <h3>${p.name}</h3>
-                <a href="tel:0944268337" style="color: #007bff; text-decoration: none; font-weight: bold;">Inquire Availability</a>
+                <a href="tel:0944268337" class="inquire-link">Inquire Availability</a>
             </div>
         `;
         grid.appendChild(div);
