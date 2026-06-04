@@ -1,19 +1,49 @@
-:root { --primary: #1a1a1a; --accent: #b8860b; --light: #f4f4f4; }
+:root { 
+    --primary: #000000; 
+    --accent: #007bff; 
+    --light: #ffffff; 
+    --card-bg: #111111;
+}
 
-body { font-family: 'Inter', sans-serif; margin: 0; color: var(--primary); line-height: 1.6; }
+/* Smooth Scrolling Enabled */
+html { scroll-behavior: smooth; }
 
-.navbar { display: flex; justify-content: space-between; padding: 20px 5%; align-items: center; background: white; }
-.logo { font-weight: bold; letter-spacing: 2px; }
-.nav-links { list-style: none; display: flex; gap: 20px; }
-.nav-links a { text-decoration: none; color: var(--primary); font-size: 0.9rem; }
+body { font-family: 'Segoe UI', sans-serif; background: var(--primary); color: var(--light); margin: 0; line-height: 1.6; }
 
-.hero { text-align: center; padding: 80px 20px; background: var(--light); }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 60px 5%; }
+/* Sticky Navbar */
+.navbar { position: sticky; top: 0; z-index: 1000; background: rgba(0, 0, 0, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; border-bottom: 1px solid var(--accent); backdrop-filter: blur(10px); }
+.logo { color: var(--accent); font-weight: bold; font-size: 1.5rem; letter-spacing: 1px; }
+.nav-links { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+.nav-links a { color: var(--light); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+.nav-links a:hover { color: var(--accent); }
 
-.item-card { border: 1px solid #e0e0e0; padding: 20px; text-align: center; transition: 0.3s; }
-.item-card:hover { border-color: var(--accent); }
-.item-card h3 { margin: 15px 0 10px; }
+.hero { text-align: center; padding: 100px 20px; border-bottom: 2px solid var(--accent); background: linear-gradient(180deg, #000000 0%, #0a192f 100%); }
+.hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
+.hero-btn { display: inline-block; margin-top: 20px; text-decoration: none; }
 
-.about-section { text-align: center; padding: 60px 20px; max-width: 800px; margin: auto; }
-footer { background: var(--primary); color: white; text-align: center; padding: 60px 20px; }
-.contact-btn { display: inline-block; padding: 15px 40px; background: var(--accent); color: white; text-decoration: none; margin-top: 20px; }
+.section-padding { padding: 60px 10%; }
+.section-title { color: var(--accent); text-align: center; font-size: 2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+
+/* Product Cards */
+.item-card { border: 1px solid #333; padding: 20px; background: var(--card-bg); text-align: center; border-radius: 8px; transition: transform 0.3s, box-shadow 0.3s; }
+.item-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2); }
+.image-placeholder { height: 250px; background: linear-gradient(45deg, #1a1a1a, #2a2a2a); margin-bottom: 15px; border-radius: 4px; border: 1px solid #333; }
+.item-category { color: #888; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; }
+.item-card h3 { margin: 5px 0 15px; font-size: 1.2rem; }
+
+/* Review Cards */
+.review-card { background: var(--card-bg); border: 1px solid #222; padding: 25px; border-radius: 8px; text-align: left; }
+.stars { color: var(--accent); font-size: 1.2rem; margin-bottom: 10px; }
+.review-text { font-style: italic; color: #ddd; margin-bottom: 15px; }
+.reviewer { font-weight: bold; color: var(--light); }
+
+.order-section { text-align: center; border-top: 1px solid #333; }
+input { display: block; width: 100%; max-width: 400px; margin: 15px auto; padding: 15px; background: #1a1a1a; border: 1px solid #444; color: white; border-radius: 4px; outline: none; }
+input:focus { border-color: var(--accent); }
+.contact-btn { background: var(--accent); color: white; border: none; padding: 15px 30px; cursor: pointer; font-weight: bold; border-radius: 4px; transition: background 0.3s; width: 100%; max-width: 430px; }
+.contact-btn:hover { background: #0056b3; }
+
+footer { background: #000; border-top: 2px solid var(--accent); padding: 40px; text-align: center; }
+footer a { color: var(--accent); text-decoration: none; font-weight: bold; }
